@@ -1,0 +1,41 @@
+<h3 class="titre">Modifier un projet</h3>
+<div class="form">
+<form class="form-horizontal form-material" [formGroup]="updateForm" (ngSubmit)="update()">
+<span class="p-float-label">
+  <input id="float-input" formControlName="title" type="text" pInputText>
+  <label for="float-input">Titre</label>
+</span>
+
+<span class="p-float-label">
+  <textarea inputId="textarea" rows="2" style="resize: none;" cols="30" formControlName="description"  pInputTextarea></textarea>
+</span>
+
+<span class="p-float-label">
+  <input id="float-input" formControlName="startDate" type="date" pInputText>
+</span>
+<span class="p-float-label">
+  <input id="float-input" formControlName="endDate" type="date" pInputText>
+</span>
+<span class="p-float-label">
+  <input id="float-input" formControlName="budget" type="number" pInputText>
+</span>
+
+<span class="p-float-label">
+  <input id="float-input" formControlName="cost" type="number" pInputText>
+</span>
+<span class="p-float-label">
+  <input id="float-input" formControlName="managerName" type="text" pInputText>
+  <label for="float-input">Manager</label>
+</span>
+
+<span class="p-float-label">
+  <p-dropdown [options]="customer" formControlName="customerId"  optionLabel="customerName" optionValue="id"></p-dropdown>
+</span>
+<span class="p-float-label">
+  <p-dropdown [options]="status" formControlName="statusId"  optionLabel="title" optionValue="id"></p-dropdown>
+</span>
+<button pButton type="submit" label="Enregistrer" class="p-button-danger"></button>
+</form>
+</div>
+
+

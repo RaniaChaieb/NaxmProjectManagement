@@ -1,0 +1,32 @@
+<p-header><button routerLink="/create" pButton type="button" class="p-button-info" >Creer un Projet</button></p-header>
+
+<p-table  [value]="projects" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Date de debut</th>
+            <th>Date de fin</th>
+            <th>Budget</th>
+            <th>Cout</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-project>
+        <tr>
+
+            <td>{{project.title}}</td>
+            <td>{{project.description}}</td>
+            <td>{{project.startDate | date}}</td>
+            <td>{{project.endDate | date}}</td>
+            <td>{{project.budget}}</td>
+            <td>{{project.cost}}</td>
+            <td>
+             <button pButton type="button" label="Supprimer" class="p-button-danger" (click)="delete(project.id)">
+            </button>
+              <button pButton type="button" label="Modifier" class="p-button-warning" (click)="update(project.id)">
+             </button>
+             </td>
+        </tr>
+    </ng-template>
+</p-table>
