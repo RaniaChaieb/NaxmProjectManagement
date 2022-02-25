@@ -2,6 +2,9 @@
 {
   margin-bottom: 2%;
 }
+.error{
+  color: red;
+}
 .form-horizontal
 {
   align-content: center;

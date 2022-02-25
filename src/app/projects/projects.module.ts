@@ -21,10 +21,18 @@ import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   providers:[ConfirmationService],
+  
   declarations: [
-    CreateProjectComponent,ListProjectComponent,UpdateProjectComponent,MenuComponent
+    CreateProjectComponent,
+    ListProjectComponent,
+    UpdateProjectComponent,
+    MenuComponent
   ],
-  exports:[CreateProjectComponent,ListProjectComponent,UpdateProjectComponent,MenuComponent],
+  exports:[
+    CreateProjectComponent,
+    ListProjectComponent,
+    UpdateProjectComponent,
+    MenuComponent],
 
   imports: [
     CommonModule,

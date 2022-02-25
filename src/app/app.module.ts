@@ -21,8 +21,7 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 
   ],
   imports: [
-    ToastNoAnimationModule.forRoot({positionClass: 'toast-bottom-left',
-  }),
+    ToastNoAnimationModule.forRoot({positionClass:'toast-bottom-left',}),
     BrowserModule,
     AppRoutingModule,
     TableModule,

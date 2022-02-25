@@ -1,5 +1,10 @@
+<!--Appel au componenet menu-->
 <app-menu></app-menu>
+
+<!--Header-->
 <p-header><button routerLink="/create" pButton type="button" class="p-button-info" >Ajouter un projet</button></p-header>
+
+<!--Table des Project-->
 <p-table  [value]="projects" responsiveLayout="scroll">
     <ng-template pTemplate="header">
         <tr>
@@ -13,21 +18,23 @@
     </ng-template>
     <ng-template pTemplate="body" let-project>
         <tr>
-
             <td>{{project.title}}</td>
             <td>{{project.description}}</td>
             <td>{{project.startDate | date}}</td>
             <td>{{project.endDate | date}}</td>
             <td>{{project.budget}}</td>
             <td>
+              <!--Bouton Delete-->
              <button pButton type="button" class="p-button-danger"  icon="pi pi-fw pi-trash" (click)="confirm(project.id)">
             </button>
+              <!--Bouton Update-->
               <button pButton type="button" class="p-button-warning" icon="pi pi-fw pi-pencil" (click)="update(project.id)">
              </button>
              </td>
         </tr>
     </ng-template>
 </p-table>
+<!--Confirm Dialog-->
 <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
 
 

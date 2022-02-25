@@ -1,49 +1,91 @@
+  <!--Titre de page-->
 <h3 class="titre">Creation d'un nouvel projet</h3>
 <div class="form">
 <form class="form-horizontal form-material" [formGroup]="creatForm" (ngSubmit)="create()">
+
+  <!--Champs title-->
 <span class="p-float-label">
   <input id="float-input" name="title" formControlName="title" type="text" pInputText>
   <label for="float-input">Titre</label>
-  <!--<div *ngIf="form.title.touched ">
-    <small *ngIf="form.title.errors?.required" class="text-danger">Firstname is required<br></small>
-    <small *ngIf="form.title.errors?.minlength" class="text-danger">Firstname must contain two characters at least</small>
-</div>-->
-</span>
+  <div class="error" *ngIf="form['title'].touched ">
+    <small *ngIf="form['title'].errors?.['required']" class="text-danger">title is required<br></small>
+    <small *ngIf="form['title'].errors?.['minlength']" class="text-danger">title must contain four characters at least</small>
+  </div>
+  </span>
 
+  <!--Champs Description-->
 <span class="p-float-label">
   <textarea inputId="textarea" rows="2" style="resize: none;" cols="30" formControlName="description"  pInputTextarea></textarea>
+  <div class="error" *ngIf="form['description'].touched ">
+    <small *ngIf="form['description'].errors?.['required']" class="text-danger">description is required<br></small>
+    <small *ngIf="form['description'].errors?.['minlength']" class="text-danger">description must contain 20 characters at least</small>
+  </div>
 </span>
 
+<!--Champs date de debut-->
 <span class="p-float-label">
   <input id="float-input" formControlName="startDate" type="date" pInputText>
+  <div class="error"  *ngIf="form['startDate'].touched ">
+    <small *ngIf="form['startDate'].errors?.['required']" class="text-danger">startDate is required<br></small>
+</div>
 </span>
+
+<!--Champs date de fin-->
 <span class="p-float-label">
   <input id="float-input" formControlName="endDate" type="date" pInputText>
+  <div class="error" *ngIf="form['endDate'].touched ">
+    <small *ngIf="form['endDate'].errors?.['required']" class="text-danger">endDate is required<br></small>
+</div>
 </span>
+
+<!--Champs budget-->
 <span class="p-float-label">
   <input id="float-input" formControlName="budget" type="number" pInputText>
   <label for="float-input">Budget</label>
+  <div class="error" *ngIf="form['budget'].touched ">
+    <small *ngIf="form['budget'].errors?.['required']" class="text-danger">budget is required<br></small>
+</div>
 </span>
 
+<!--Champs cout-->
 <span class="p-float-label">
   <input id="float-input" formControlName="cost" type="number" pInputText>
   <label for="float-input">Cout</label>
-</span>
-<span class="p-float-label">
-  <input id="float-input" formControlName="managerName" type="text" pInputText>
-  <label for="float-input">Manager</label>
+  <div class="error" *ngIf="form['cost'].touched ">
+    <small *ngIf="form['cost'].errors?.['required']" class="text-danger">cost is required<br></small>
+</div>
 </span>
 
+<!--Champs Manager-->
+<span class="p-float-label">
+  <input id="float-input" name="managerName" formControlName="managerName" type="text" pInputText>
+  <label for="float-input">Manager</label>
+  <div class="error" *ngIf="form['managerName'].touched ">
+    <small *ngIf="form['managerName'].errors?.['required']" class="text-danger">managerName is required<br></small>
+</div>
+</span>
+
+<!--Champs customerId-->
 <span class="p-float-label">
   <p-dropdown [options]="customer" formControlName="customerId"  optionLabel="customerName" optionValue="id"></p-dropdown>
-</span>
-<span class="p-float-label">
-  <p-dropdown [options]="status"  formControlName="statusId"  optionLabel="title" optionValue="id"></p-dropdown>
+  <div class="error" *ngIf="form['customerId'].touched ">
+    <small *ngIf="form['customerId'].errors?.['required']" class="text-danger">customer is required<br></small>
+</div>
 </span>
 
+<!--Champs StatusId-->
+<span class="p-float-label">
+  <p-dropdown [options]="status"  formControlName="statusId"  optionLabel="title" optionValue="id"></p-dropdown>
+  <div class="error" *ngIf="form['statusId'].touched ">
+    <small *ngIf="form['statusId'].errors?.['required']" class="text-danger">status is required<br></small>
+</div>
+</span>
+
+<!--les boutons-->
 <button pButton type="submit" label="Enregistrer" class="p-button-danger"></button>
 <button pButton type="submit" label="Annuler" class="p-button-success" routerLink="/">
 </button>
+
 </form>
 </div>
 

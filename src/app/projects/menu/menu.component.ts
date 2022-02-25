@@ -16,9 +16,10 @@ export class MenuComponent implements OnInit {
           label: 'Projets',
           items: [
             {label: 'Liste', icon: 'pi pi-fw pi-list'},
-            {label: 'Ajouter ',icon: 'pi pi-fw pi-plus' },
+            {label: 'Ajouter ',icon: 'pi pi-fw pi-plus'},
                ]
       },
+
       {
           label: 'Clients',
           items: [
@@ -26,6 +27,7 @@ export class MenuComponent implements OnInit {
               {label: 'Ajouter', icon: 'pi pi-fw pi-plus'}
           ]
       },
+
       {
         label: 'Status',
         items: [
@@ -33,6 +35,7 @@ export class MenuComponent implements OnInit {
             {label: 'Ajouter', icon: 'pi pi-fw pi-plus'}
         ]
     },
+
     {
       label: 'Collaborateurs',
       items: [
@@ -40,9 +43,6 @@ export class MenuComponent implements OnInit {
           {label: 'Ajouter', icon: 'pi pi-fw pi-plus'}
       ]
   }
-  ];
-
-
-  }
+  ]; }
 
 }

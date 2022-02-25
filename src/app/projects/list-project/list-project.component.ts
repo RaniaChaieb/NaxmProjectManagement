@@ -19,7 +19,9 @@ export class ListProjectComponent implements OnInit {
   ngOnInit(): void {
       this.loadproject();
      }
-
+  /**
+   * la suppression d'un projet
+   */
      confirm(id:number) {
       this.confirmationService.confirm({
           message: 'Etes-vous sûr de vouloir supprimer ce projet?',
@@ -28,19 +30,19 @@ export class ListProjectComponent implements OnInit {
             error=>{console.log(error)})
             this.toastr.error('projet supprimé avec succes!'); } });}
 
+  /**
+   * Liste des projets
+   */
       loadproject(){
        this.httpservice.get('Projects').subscribe(
         result=>{this.projects=result},
         error=>{console.log(error)}
     )}
 
-delete(id:number){
-if (confirm("are you sure to delete this project"))
-    this.httpservice.delete("Projects",id).subscribe(result=>{this.loadproject()},
-      error=>{console.log(error)})
-      this.toastr.error('project deleted successfully!');
-}
-update(id:number){
-  this.router.navigate(['update',id])
-   }
-}
+  /**
+   * La redirection vers UpdateComponenet
+   */
+      update(id:number){
+        this.router.navigate(['update',id])
+        }
+      }

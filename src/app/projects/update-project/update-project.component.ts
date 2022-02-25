@@ -39,7 +39,7 @@ updateForm!: FormGroup;
      private initializeForm(): void {
       this.updateForm = this.formBuilder.group({
         title: ['', [Validators.required, Validators.minLength(4)]],
-        description: ['', [Validators.required, Validators.minLength(4)]],
+        description: ['', [Validators.required, Validators.minLength(20)]],
         startDate: ['', [Validators.required]],
         endDate: ['', [Validators.required]],
         budget: ['', [Validators.required]],
@@ -57,9 +57,8 @@ updateForm!: FormGroup;
     this.project=response;
     console.log(response);
     this.loadform();
-  }
-  )
-}
+  })}
+
 /**
    * loadForm
 */
@@ -76,22 +75,30 @@ updateForm!: FormGroup;
 
 
 }
+/**
+   * Update()
+*/
 public update() {
   this.httpservice.update("Projects",this.id,this.updateForm.value).subscribe((response) => {
   if (response) {
    this.router.navigate(['/']);}})}
 
+/**
+   * la liste des status
+*/
    getStatus(){
     this.httpservice.get("Status").subscribe((response) => {
       this.status = response;
-      console.log(this.status);
+      console.log(this.status);})}
 
-  })}
+  /**
+   * la liste des Clients
+*/
   getCustomer(){
     this.httpservice.get("Customer").subscribe((response) => {
       this.customer = response;
-      console.log(this.customer);
+      console.log(this.customer);})}
 
-  })}
-  }
+
+    }
 
