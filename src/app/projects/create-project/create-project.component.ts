@@ -5,6 +5,9 @@ import { Customer } from '../../core/entities/customer';
 import { Project } from '../../core/entities/project';
 import { Status } from '../../core/entities/status';
 import { HttpServiceService } from '../../core/services/http-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { waitForAsync } from '@angular/core/testing';
+
 
 @Component({
   selector: 'app-create-project',
@@ -18,7 +21,7 @@ export class CreateProjectComponent implements OnInit {
   status:Array<Status>=[];
   constructor(private formBuilder:FormBuilder,
     private httpservice:HttpServiceService,
-    private router:Router) { }
+    private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -45,12 +48,15 @@ export class CreateProjectComponent implements OnInit {
       statusId:['', [Validators.required]],
     });
   }
+
 create(){
   this.project = this.creatForm.value;
   this.httpservice.create("Projects",this.project).subscribe((response) => {
     if (response) {
-    this.router.navigate(['/'])}}
+    this.toastr.success('project created successfully!');
+        this.router.navigate(['/'])}}
   )
+
 }
 getStatus(){
   this.httpservice.get("Status").subscribe((response) => {

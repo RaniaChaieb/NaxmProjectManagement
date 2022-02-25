@@ -2,8 +2,12 @@
 <div class="form">
 <form class="form-horizontal form-material" [formGroup]="creatForm" (ngSubmit)="create()">
 <span class="p-float-label">
-  <input id="float-input" formControlName="title" type="text" pInputText>
+  <input id="float-input" name="title" formControlName="title" type="text" pInputText>
   <label for="float-input">Titre</label>
+  <!--<div *ngIf="form.title.touched ">
+    <small *ngIf="form.title.errors?.required" class="text-danger">Firstname is required<br></small>
+    <small *ngIf="form.title.errors?.minlength" class="text-danger">Firstname must contain two characters at least</small>
+</div>-->
 </span>
 
 <span class="p-float-label">
